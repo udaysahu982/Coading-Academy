@@ -1,5 +1,7 @@
 package com.example.codingacademy.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,11 @@ public class EnrolledCoursesService {
 	public EnrolledCourses saveEnrolledCourse(EnrolledCourses ec) {
 		return repo.save(ec);
 	}
+	
+	public List<Integer> findCourseidByUserid(int userId){
+		
+		return repo.findCourseidByUserid(userId);
+	}
+	
+
 }

@@ -359,7 +359,8 @@ function payNow(){
                 })
                 .then(res=>res.text())
                 .then(data=>{
-                	if(data==="success"){
+                	  console.log("Response =", data);
+                	if(data.trim() === "success"){
                 		window.location = "myCourses"
                 	} else{
                 		alert("payment verification failed");
