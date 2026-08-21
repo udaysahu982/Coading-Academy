@@ -14,7 +14,7 @@ public class EnrolledCourses {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int StudentId;
+	private int user;
 	private int courseId;
 	private LocalDate date;
 	private LocalTime time;
@@ -26,10 +26,10 @@ public class EnrolledCourses {
 	}
 
 
-	public EnrolledCourses(int id, int studentId, int courseId, LocalDate date, LocalTime time) {
+	public EnrolledCourses(int id, int user, int courseId, LocalDate date, LocalTime time) {
 		super();
 		this.id = id;
-		StudentId = studentId;
+		this.user = user;
 		this.courseId = courseId;
 		this.date = date;
 		this.time = time;
@@ -46,13 +46,13 @@ public class EnrolledCourses {
 	}
 
 
-	public int getStudentId() {
-		return StudentId;
+	public int getuser() {
+		return user;
 	}
 
 
-	public void setStudentId(int studentId) {
-		StudentId = studentId;
+	public void setuser(int user) {
+		this.user = user;
 	}
 
 

@@ -21,9 +21,9 @@ public class EnrolledCoursesService {
 		return repo.save(ec);
 	}
 	
-	public List<Integer> findCourseidByUserid(int userId){
+	public List<EnrolledCourses> findByUser(int user){
 		
-		return repo.findCourseidByUserid(userId);
+		return repo.findByUser(user);
 	}
 	
 

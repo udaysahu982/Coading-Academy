@@ -112,7 +112,7 @@ public class PaymentController {
 			
 			EnrolledCourses ec =   new EnrolledCourses();
 
-		    ec.setStudentId(user.getId());
+		    ec.setuser(user.getId());
 
 		    ec.setCourseId(courseId);
 
@@ -140,23 +140,5 @@ public class PaymentController {
 		
 	}
 	
-	@GetMapping("/myCourses")
-	public String myCourses(HttpSession session, Model model) {
-		
-		User user = (User)session.getAttribute("user");
-		
-		List<Integer> courseId = service.findCourseidByUserid(user.getId());
-		
-		List<Course> courses= new ArrayList<>() ;
-		
-		for(int i : courseId) {
-			
-			courses.add(courseService.findByCourseId(i));
-		}
-		
-		model.addAttribute("courses", courses);
-		
-		return "viewEnrolledCourses";
-	}
 
 }

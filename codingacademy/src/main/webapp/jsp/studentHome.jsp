@@ -15,6 +15,7 @@
 <h1>User role is ${user.role}</h1>
 
 <div> viewAllCourses  <a href="viewAllCourses">viewAllCourses</a></div>
+<div> viewEnrolledCourses  <a href="viewEnrolledCourses">viewEnrolledCourses</a></div>
 
 
 </body>

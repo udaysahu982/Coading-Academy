@@ -10,6 +10,6 @@ import com.example.codingacademy.bean.EnrolledCourses;
 @Repository
 public interface EnrolledCoursesRepository extends JpaRepository<EnrolledCourses, Integer> {
 
-	List<Integer> findCourseidByUserid(int userId);
+	List<EnrolledCourses> findByUser(int user);
 	
 }
