@@ -200,27 +200,7 @@ public class CourseController {
 		return "redirect:/viewPublishedCourses";
 	}
 	
-	@GetMapping("/viewAllCourses")
-	public String viewAllCourses(Model model) {
-		
-		List<Course> courses = serv.findAllCourses();
-		
-		model.addAttribute("courses", courses );
-		
-		return "viewAllCourses";
-	}
 	
-	@GetMapping("/viewCourse")
-	public String viewCourse(@RequestParam("id") int courseId, Model model) {
-		
-		Course course = serv.findByCourseId(courseId);
-		User user = userServ.findUserDetailsByUserId(course.getInstructorId());
-		
-		model.addAttribute("course", course);
-		model.addAttribute("instructorName", user.getName());
-		
-		return "viewCourse";
-	}
 	
 	
 }
