@@ -93,6 +93,47 @@ body{
 
 <div class="course-container">
 
+ <c:forEach var="enrolledCourse" items="${enrolledCourses}">
+
+        <div class="course-card">
+
+            <div class="card-body">
+
+                <div class="course-title">
+                    ${enrolledCourse.title}
+                </div>
+
+                <div class="course-description">
+                    ${enrolledCourse.description}
+                </div>
+
+                <div>
+                    <span class="badge">
+                        ${enrolledCourse.category}
+                    </span>
+
+                    <span class="badge">
+                        ${enrolledCourse.level}
+                    </span>
+                </div>
+
+                <div class="price">
+                    ₹${enrolledCourse.price}
+                </div>
+
+                <a href="#" class="btn">
+                   Enrolled
+                </a>
+
+            </div>
+
+        </div>
+
+    </c:forEach>
+    
+    
+
+
     <c:forEach var="course" items="${courses}">
 
         <div class="course-card">
