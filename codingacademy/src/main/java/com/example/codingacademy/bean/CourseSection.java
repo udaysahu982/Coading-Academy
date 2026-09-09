@@ -27,6 +27,9 @@ public class CourseSection {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+
 	public CourseSection(int id, String sectionTitle, int courseId, List<SectionItem> items) {
 		super();
 		this.id = id;
@@ -34,6 +37,11 @@ public class CourseSection {
 		this.courseId = courseId;
 		this.items = items;
 	}
+
+
+
+
+
 
 	public int getId() {
 		return id;
@@ -69,8 +77,7 @@ public class CourseSection {
 
 	@Override
 	public String toString() {
-		return "CourseSection [id=" + id + ", sectionTitle=" + sectionTitle + ", courseId=" + courseId + ", items="
-				+ items + "]";
+		return "CourseSection [id=" + id + ", sectionTitle=" + sectionTitle + ", courseId=" + courseId  + "]";
 	}
 	
 	

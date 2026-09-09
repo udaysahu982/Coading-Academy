@@ -179,7 +179,7 @@ body{
                             ₹${item.price}
                         </div>
 
-                        <a href="viewCourse?id=${item.id}" class="btn">
+                        <a href="viewEnrolledCourse?courseId=${item.id}" class="btn">
                             Continue Learning
                         </a>
 

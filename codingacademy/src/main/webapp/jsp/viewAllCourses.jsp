@@ -121,8 +121,8 @@ body{
                     ₹${enrolledCourse.price}
                 </div>
 
-                <a href="#" class="btn">
-                   Enrolled
+                <a href="viewEnrolledCourse?courseId=${enrolledCourse.id}" class="btn">
+                   view Course
                 </a>
 
             </div>
@@ -163,7 +163,7 @@ body{
                 </div>
 
                 <a href="viewCourse?id=${course.id}" class="btn">
-                    View Course
+                    Enroll Now
                 </a>
 
             </div>

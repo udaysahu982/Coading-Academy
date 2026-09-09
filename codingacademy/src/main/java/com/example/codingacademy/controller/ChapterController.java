@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.codingacademy.bean.CourseSection;
 import com.example.codingacademy.bean.SectionItem;
+import com.example.codingacademy.bean.User;
 import com.example.codingacademy.service.CourseSectionService;
 import com.example.codingacademy.service.SectionItemService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class ChapterController {
@@ -21,6 +24,10 @@ public class ChapterController {
 	
 	@Autowired
 	SectionItemService sectionItemService;
+	
+
+	@Autowired
+	CourseSectionService sectionService;
 
 	@PostMapping("/updateChapter")
 	public String editChapterTitle(@ModelAttribute CourseSection courseSection, @RequestParam("sectionId") int sectionId) {
@@ -31,6 +38,20 @@ public class ChapterController {
 		return "redirect:/manageCurriculum?courseId="+courseSection.getCourseId();
 				
 	}
+	
+	@PostMapping("/addChapter")
+    public String addChapterSection( @RequestParam("courseId") int courseId, @RequestParam("sectionTitle") String sectionTitle, HttpSession session) {
+		
+		User user = (User)session.getAttribute("user");
+		if(user == null) return "redirect:/login";
+        
+        CourseSection section = new CourseSection();
+        section.setCourseId(courseId);
+        section.setSectionTitle(sectionTitle);
+        sectionService.saveSection(section);
+        
+        return "redirect:/manageCurriculum?courseId=" + courseId;
+    }
 	
 	@GetMapping("/deleteChapter")	
 	public String deleteChapter(@RequestParam("sectionId") int sectionId, @RequestParam("courseId") int courseId) {

@@ -80,31 +80,19 @@ public class CourseController {
 		
 		System.out.println(sections.toString());
 		
-		for(CourseSection sec : sections) {
-			
-			List<SectionItem> item = itemService.getBySectionIdAndCourseId(sec.getId(), course.getId());
-			sec.setItems(item);
-		}
-		
+//		for(CourseSection sec : sections) {
+//			
+//			List<SectionItem> item = itemService.getBySectionIdAndCourseId(sec.getId(), course.getId());
+//			sec.setItems(item);
+//		}
+//		
 		model.addAttribute("course", course);
 		model.addAttribute("section", sections);
 		
 		return "manageCurriculum";	
 	}
 	
-	@PostMapping("/addChapter")
-    public String addChapterSection( @RequestParam("courseId") int courseId, @RequestParam("sectionTitle") String sectionTitle, HttpSession session) {
-		
-		User user = (User)session.getAttribute("user");
-		if(user == null) return "redirect:/login";
-        
-        CourseSection section = new CourseSection();
-        section.setCourseId(courseId);
-        section.setSectionTitle(sectionTitle);
-        sectionService.saveSection(section);
-        
-        return "redirect:/manageCurriculum?courseId=" + courseId;
-    }
+	
 	
 	@GetMapping("/openAddSectionItem")
 	public String openAddItem(@RequestParam("sectionId") int sectionId, @RequestParam("courseId") int courseId, Model model, HttpSession session) {
